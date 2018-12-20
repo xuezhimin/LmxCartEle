@@ -6,6 +6,7 @@ import com.google.gson.reflect.TypeToken;
 import com.qh.xuezhimin.elecart20181218.bean.Result;
 import com.qh.xuezhimin.elecart20181218.bean2.Data;
 import com.qh.xuezhimin.elecart20181218.utils.HttpUtils;
+import com.qh.xuezhimin.elecart20181218.utils.HttpUtils2;
 
 import java.lang.reflect.Type;
 import java.util.List;
@@ -27,16 +28,6 @@ public class CartModel {
             }.getType();
 
             Result result = gson.fromJson(resultString, type);
-//        Result<List<Goods>> result = new Result<>();
-//        result.setCode(0);
-//        List<Goods> list = new ArrayList<>();
-//        for (int i = 0; i < 30; i++) {
-//            Goods goods = new Goods();
-//            goods.setImages("");
-//            goods.setTitle("手机"+i);
-//            list.add(goods);
-//        }
-//        result.setData(list);
 
             return result;
         } catch (Exception e) {

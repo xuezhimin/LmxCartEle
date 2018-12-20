@@ -51,7 +51,7 @@ public class RightAdapter extends RecyclerView.Adapter<RightAdapter.ChildHolder>
 
         final Spus spus = mList.get(position);
         childHolder.text.setText(spus.getName());
-        childHolder.price.setText("单价：" + spus.getRestaurant_id());//单价
+        childHolder.price.setText("单价：" + spus.getSkus().get(0).getPrice());//单价
 
 //        String imageurl = "https" + spus.getImages().split("https")[1];
 //        Log.i("dt", "imageUrl: " + imageurl);

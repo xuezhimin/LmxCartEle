@@ -4,7 +4,6 @@ import android.util.Log;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.concurrent.TimeUnit;
 
 import okhttp3.FormBody;
 import okhttp3.MediaType;
@@ -14,15 +13,10 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
-public class HttpUtils {
+public class HttpUtils2 {
     public static String get(String urlString){
 
-        OkHttpClient okHttpClient = new OkHttpClient.Builder()
-                .addInterceptor(new LoggingInterceptor())//日志拦截器
-                .connectTimeout(10, TimeUnit.SECONDS)//连接超时
-                .readTimeout(10,TimeUnit.SECONDS)//读取超时
-                .writeTimeout(10,TimeUnit.SECONDS)//写入超时
-                .build();
+        OkHttpClient okHttpClient = new OkHttpClient();
 
         Request request = new Request.Builder().url(urlString).get().build();
 
@@ -39,12 +33,7 @@ public class HttpUtils {
 
     public static String postForm(String url,String[] name,String[] value){
 
-        OkHttpClient okHttpClient = new OkHttpClient.Builder()
-                .addInterceptor(new LoggingInterceptor())//日志拦截器
-                .connectTimeout(10, TimeUnit.SECONDS)//连接超时
-                .readTimeout(10,TimeUnit.SECONDS)//读取超时
-                .writeTimeout(10,TimeUnit.SECONDS)//写入超时
-                .build();
+        OkHttpClient okHttpClient = new OkHttpClient();
 
         FormBody.Builder formBuild = new FormBody.Builder();
         for (int i = 0; i < name.length; i++) {
@@ -67,12 +56,7 @@ public class HttpUtils {
 
     public static String postFile(String url,String[] name,String[] value,String fileParamName,File file){
 
-        OkHttpClient okHttpClient = new OkHttpClient.Builder()
-                .addInterceptor(new LoggingInterceptor())//日志拦截器
-                .connectTimeout(10, TimeUnit.SECONDS)//连接超时
-                .readTimeout(10,TimeUnit.SECONDS)//读取超时
-                .writeTimeout(10,TimeUnit.SECONDS)//写入超时
-                .build();
+        OkHttpClient okHttpClient = new OkHttpClient();
 
         MultipartBody.Builder requestBody = new MultipartBody.Builder().setType(MultipartBody.FORM);
         if(file != null){
